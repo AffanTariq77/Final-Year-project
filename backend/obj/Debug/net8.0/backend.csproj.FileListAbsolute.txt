@@ -30,3 +30,8 @@ D:\Final-Year-project\backend\obj\Debug\net8.0\refint\backend.dll
 D:\Final-Year-project\backend\obj\Debug\net8.0\backend.pdb
 D:\Final-Year-project\backend\obj\Debug\net8.0\backend.genruntimeconfig.cache
 D:\Final-Year-project\backend\obj\Debug\net8.0\ref\backend.dll
+D:\Final-Year-project\backend\bin\Debug\net8.0\backend.staticwebassets.endpoints.json
+D:\Final-Year-project\backend\obj\Debug\net8.0\backend.sourcelink.json
+D:\Final-Year-project\backend\obj\Debug\net8.0\staticwebassets.build.endpoints.json
+D:\Final-Year-project\backend\obj\Debug\net8.0\staticwebassets\msbuild.backend.Microsoft.AspNetCore.StaticWebAssetEndpoints.props
+D:\Final-Year-project\backend\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt

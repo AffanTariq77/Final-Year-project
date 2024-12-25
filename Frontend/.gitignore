@@ -1,30 +1,59 @@
-# General ignores
-.DS_Store
-Thumbs.db
-*.log
-*.tmp
-*.bak
-*.swp
-*.swo
+# Compiled output
+/dist
+/tmp
+/out-tsc
 
-# Node.js
-node_modules/
+# Dependencies
+/node_modules
+package-lock.json
+
+# IDEs and editors
+/.idea/
+/.project
+/.classpath
+/.c9/
+/.settings/
+/*.launch
+*.sublime-workspace
+
+# Visual Studio Code
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+
+# Miscellaneous
+/.sass-cache
+/connect.lock
+/coverage
+/libpeerconnection.log
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
-
-# Angular
-dist/
-.out/
-coverage/
-.angular/
-.angular/cache/
-.angular.json
+testem.log
+/typings
+.angular
+.angular/cache
 
 # Environment variables
 *.env
 *.env.local
 *.env.*.local
+
+# e2e testing
+/e2e/*.js
+/e2e/*.map
+
+# System files
+.DS_Store
+Thumbs.db
+
+# Temporary files
+*.tmp
+*.bak
+*.swp
+*.swo
 
 # .NET
 bin/
@@ -38,31 +67,14 @@ obj/
 *.vscode/
 .project
 .lock.json
-*.log
 *.pdb
 *.dll
 *.dbmdl
-*.log
 *.nupkg
 *.sln.docstates
-
-# Visual Studio Code
-.vscode/settings.json
-.vscode/tasks.json
-.vscode/launch.json
-.vscode/*.code-workspace
-
-# Visual Studio
-# Uncomment if you have a dedicated toolset for VS
-# Recycle Bin
-~$*
 
 # Logs
 *.log
 
-# Temporary files
-*.tmp
-
-# IDE-specific files
-.idea/
-.idea/*
+# Uncomment if you have specific needs for Visual Studio
+# ~$*

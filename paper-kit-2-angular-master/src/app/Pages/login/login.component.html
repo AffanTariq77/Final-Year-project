@@ -1,11 +1,186 @@
-<div id="bg"></div>
+<div class="wrapper">
+  <div
+    class="page-header"
+    style="background-image: url('./assets/img/login-image.jpg')"
+  >
+    <div class="filter"></div>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-4 col-sm-6 mr-auto ml-auto">
+          <div class="card card-register">
+            <h3 class="title text-center">
+              {{ isSignUp ? "Sign Up" : "Login" }}
+            </h3>
+            <div class="social-line text-center">
+              <a
+                href="#pablo"
+                class="btn btn-neutral btn-facebook btn-just-icon"
+              >
+                <i class="fa fa-facebook-square"></i>
+              </a>
+              <a href="#pablo" class="btn btn-neutral btn-google btn-just-icon">
+                <i class="fa fa-google-plus"></i>
+              </a>
+              <a
+                href="#pablo"
+                class="btn btn-neutral btn-twitter btn-just-icon"
+              >
+                <i class="fa fa-twitter"></i>
+              </a>
+            </div>
 
-<form action="">
-  <label for=""></label>
-  <input type="text" name="" id="" placeholder="email" class="email" />
+            <!-- Sign Up Form -->
+            <form
+              *ngIf="isSignUp"
+              [formGroup]="signUpForm"
+              (ngSubmit)="onSignUpSubmit()"
+            >
+              <div class="form-group text-center">
+                <label for="email">Email</label>
+                <input
+                  type="text"
+                  id="email"
+                  placeholder="email"
+                  class="form-control email"
+                  formControlName="email"
+                />
+                <div
+                  *ngIf="
+                    signUpForm.get('email')?.touched &&
+                    signUpForm.get('email')?.invalid
+                  "
+                >
+                  <small *ngIf="signUpForm.get('email')?.errors?.['required']"
+                    >Email is required.</small
+                  >
+                  <small *ngIf="signUpForm.get('email')?.errors?.['email']"
+                    >Please enter a valid email address.</small
+                  >
+                </div>
+              </div>
 
-  <label for=""></label>
-  <input type="password" name="" id="" placeholder="password" class="pass" />
+              <div class="form-group text-center">
+                <label for="password">Password</label>
+                <input
+                  type="password"
+                  id="password"
+                  placeholder="password"
+                  class="form-control pass"
+                  formControlName="password"
+                />
+                <div
+                  *ngIf="
+                    signUpForm.get('password')?.touched &&
+                    signUpForm.get('password')?.invalid
+                  "
+                >
+                  <small
+                    *ngIf="signUpForm.get('password')?.errors?.['required']"
+                    >Password is required.</small
+                  >
+                  <small
+                    *ngIf="signUpForm.get('password')?.errors?.['minlength']"
+                    >Password must be at least 6 characters.</small
+                  >
+                </div>
+              </div>
 
-  <button type="submit">login to your account</button>
-</form>
+              <button type="submit" [disabled]="signUpForm.invalid">
+                Sign Up
+              </button>
+
+              <div *ngIf="errorMessage" class="error text-center">
+                {{ errorMessage }}
+              </div>
+            </form>
+
+            <!-- Login Form -->
+            <form
+              *ngIf="!isSignUp"
+              [formGroup]="loginForm"
+              (ngSubmit)="onLoginSubmit()"
+            >
+              <div class="form-group text-center">
+                <label for="email">Email</label>
+                <input
+                  type="text"
+                  id="email"
+                  placeholder="email"
+                  class="form-control email"
+                  formControlName="email"
+                />
+                <div
+                  *ngIf="
+                    loginForm.get('email')?.touched &&
+                    loginForm.get('email')?.invalid
+                  "
+                >
+                  <small *ngIf="loginForm.get('email')?.errors?.['required']"
+                    >Email is required.</small
+                  >
+                  <small *ngIf="loginForm.get('email')?.errors?.['email']"
+                    >Please enter a valid email address.</small
+                  >
+                </div>
+              </div>
+
+              <div class="form-group text-center">
+                <label for="password">Password</label>
+                <input
+                  type="password"
+                  id="password"
+                  placeholder="password"
+                  class="form-control pass"
+                  formControlName="password"
+                />
+                <div
+                  *ngIf="
+                    loginForm.get('password')?.touched &&
+                    loginForm.get('password')?.invalid
+                  "
+                >
+                  <small *ngIf="loginForm.get('password')?.errors?.['required']"
+                    >Password is required.</small
+                  >
+                  <small
+                    *ngIf="loginForm.get('password')?.errors?.['minlength']"
+                    >Password must be at least 6 characters.</small
+                  >
+                </div>
+              </div>
+
+              <button type="submit" [disabled]="loginForm.invalid">
+                Login to your account
+              </button>
+
+              <div *ngIf="errorMessage" class="error text-center">
+                {{ errorMessage }}
+              </div>
+            </form>
+
+            <div class="forgot text-center">
+              <a href="#" class="btn btn-link btn-danger">Forgot password?</a>
+            </div>
+
+            <div class="text-center mt-3">
+              <a href="javascript:void(0)" (click)="toggleForm()">
+                {{
+                  isSignUp
+                    ? "Already have an account? Login"
+                    : "Don't have an account? Sign Up"
+                }}
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer register-footer text-center">
+        <h6>
+          &copy;{{ test | date : "yyyy" }}, made with
+          <i class="fa fa-heart heart"></i> by Creative Team
+        </h6>
+      </div>
+    </div>
+  </div>
+</div>

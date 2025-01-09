@@ -11,9 +11,16 @@ import { FooterComponent } from "./shared/footer/footer.component";
 
 import { ComponentsModule } from "./components/components.module";
 import { ExamplesModule } from "./examples/examples.module";
+import { ReactiveFormsModule } from "@angular/forms";
+import { LoginComponent } from "./Pages/login/login.component";
 
 @NgModule({
-  declarations: [AppComponent, NavbarComponent, FooterComponent],
+  declarations: [
+    AppComponent,
+    NavbarComponent,
+    FooterComponent,
+    LoginComponent,
+  ],
   imports: [
     BrowserModule,
     NgbModule,
@@ -22,6 +29,7 @@ import { ExamplesModule } from "./examples/examples.module";
     ComponentsModule,
     ExamplesModule,
     AppRoutingModule,
+    ReactiveFormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

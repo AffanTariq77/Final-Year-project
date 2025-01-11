@@ -25,6 +25,7 @@ export class LoginComponent implements OnInit {
     });
 
     this.signUpForm = this.fb.group({
+      Name: "",
       email: ["", [Validators.required, Validators.email]],
       password: ["", [Validators.required, Validators.minLength(6)]],
     });
@@ -35,10 +36,17 @@ export class LoginComponent implements OnInit {
       const { email, password } = this.loginForm.value;
       const storedEmail = localStorage.getItem("email");
       const storedPassword = localStorage.getItem("password");
+      // const storedname = localStorage.getItem("Name");
+      const storedfirstlogin = localStorage.getItem("user_firsttimelogin");
 
       if (email === storedEmail && password === storedPassword) {
         alert("Login successful!");
-        this.router.navigate(["/home"]); // Redirect to the dashboard
+
+        if (storedfirstlogin == "true") {
+          this.router.navigate(["/profdetials-component"]);
+        } else {
+          this.router.navigate(["/user-profile"]);
+        }
       } else {
         this.errorMessage = "Invalid email or password";
       }
@@ -49,14 +57,18 @@ export class LoginComponent implements OnInit {
 
   onSignUpSubmit(): void {
     if (this.signUpForm.valid) {
-      const { email, password } = this.signUpForm.value;
+      const { Name, email, password } = this.signUpForm.value;
 
       // Store the credentials in localStorage
+      localStorage.setItem("name", Name);
       localStorage.setItem("email", email);
       localStorage.setItem("password", password);
 
-      alert("Sign up successful! You can now log in.");
-      this.isSignUp = false; // Switch back to login form
+      localStorage.setItem("user_firsttimelogin", "true");
+
+      alert("Sign up successful! Complete your profile please.");
+      // this.isSignUp = false; // Switch back to login form
+      this.router.navigate(["/profdetials-component"]);
     } else {
       this.errorMessage = "Please fill out the form correctly.";
     }
@@ -64,6 +76,6 @@ export class LoginComponent implements OnInit {
 
   toggleForm(): void {
     this.isSignUp = !this.isSignUp;
-    this.errorMessage = ""; // Clear error message when toggling forms
+    this.errorMessage = ""; // Clear error message
   }
 }

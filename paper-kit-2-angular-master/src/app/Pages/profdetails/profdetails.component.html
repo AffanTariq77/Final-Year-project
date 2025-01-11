@@ -1,0 +1,84 @@
+<div class="wrapper">
+  <!-- Page Header -->
+  <div
+    class="page-header page-header-xs"
+    data-parallax="true"
+    style="background-image: url('./assets/img/fabio-mangione.jpg')"
+  >
+    <div class="filter"></div>
+  </div>
+
+  <!-- Profile Content Section -->
+  <div class="section profile-content">
+    <div class="container">
+      <div class="owner">
+        <div class="avatar">
+          <img
+            src="./assets/img/faces/placeholder-avatar.png"
+            alt="Profile Picture"
+            class="img-circle img-no-padding img-responsive"
+            *ngIf="!profilepicture"
+          />
+          <img
+            [src]="profilepicture"
+            alt="Profile Picture"
+            class="img-circle img-no-padding img-responsive"
+            *ngIf="profilepicture"
+          />
+        </div>
+        <div class="name">
+          <h4 class="title">Complete Your Profile<br /></h4>
+          <h6 class="description">Add your details below</h6>
+        </div>
+      </div>
+
+      <!-- Profile Form -->
+      <div class="row">
+        <div class="col-md-6 ml-auto mr-auto">
+          <form [formGroup]="profileform" (ngSubmit)="onsubmit()">
+            <!-- Age -->
+            <div class="form-group">
+              <label for="age">Age:</label>
+              <input
+                type="number"
+                id="age"
+                formControlName="age"
+                class="form-control"
+                placeholder="Enter your age"
+              />
+            </div>
+
+            <!-- Gender -->
+            <div class="form-group">
+              <label for="gender">Gender:</label>
+              <select id="gender" formControlName="gender" class="form-control">
+                <option value="" disabled selected>Select your gender</option>
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+              </select>
+            </div>
+
+            <!-- Profile Picture -->
+            <div class="form-group">
+              <label for="profilePic">Profile Picture:</label>
+              <input
+                type="file"
+                id="profilePic"
+                (change)="onfileselected($event)"
+                class="form-control"
+              />
+            </div>
+
+            <!-- Submit Button -->
+            <button
+              type="submit"
+              class="btn btn-outline-default btn-round btn-block mt-3"
+            >
+              Save Profile
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

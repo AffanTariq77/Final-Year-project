@@ -1,4 +1,4 @@
-# Ignore Angular build artifacts and dependencies
+# Angular build artifacts and dependencies
 /dist/
 /node_modules/
 npm-debug.log*
@@ -9,14 +9,14 @@ yarn-error.log*
 /src/environments/*.ts
 !src/environments/environment*.ts
 
-# Ignore Angular test coverage reports
+# Angular test coverage reports
 /coverage/
 
 # Angular temporary files
 /.angular/cache/
 /.angular/
 
-# Ignore .NET build artifacts
+# .NET build artifacts
 bin/
 obj/
 *.exe
@@ -26,42 +26,109 @@ obj/
 *.log
 *.vspscc
 *.vssscc
+*.bin
 
-# Ignore publish artifacts
+# Publish artifacts
 *.publish/
 
-# Ignore user-specific files
+# User-specific files
 *.user
 *.suo
 *.userosscache
 *.sln.docstates
 
-# Ignore JetBrains IDE settings
+# JetBrains Rider and IDE settings
 .idea/
 
-# Ignore Visual Studio Code settings
+# Visual Studio Code settings
 .vscode/
+*.code-workspace
 
-# Ignore temporary files
+# Temporary files
 *.tmp
 *.temp
 *.bak
 *.swp
 *.sln.ide
+*.swo
 
-# Ignore database and configuration files
+# Database and configuration files
 appsettings*.json
 app.db
 local.settings.json
 
-# Ignore logs
+# Logs
 *.log
 
-# Ignore file uploads and generated content
+# File uploads and generated content
 wwwroot/uploads/
 wwwroot/content/
 
-# Ignore other OS or IDE-specific files
+# OS or IDE-specific files
 .DS_Store
 Thumbs.db
-*.iml
+Desktop.ini
+$RECYCLE.BIN/
+
+# SQL Server files
+*.mdf
+*.ldf
+
+# IIS and Visual Studio settings
+_IISExpress/
+*.vs/
+.vs/
+
+# .NET dependencies and lock files
+project.lock.json
+project.fragment.lock.json
+artifacts/
+
+# Resharper files
+*.ReSharper
+*_ReSharper.Caches
+
+# NuGet
+*.nupkg
+*.snupkg
+.nuget/packages/
+.nuget/
+
+# Azure DevOps
+*.publishsettings
+.vsts/
+
+# Coverlet Coverage Reports
+coverage*.json
+coverage*.xml
+coverage*.info
+
+# NCrunch files
+_NCrunch_*
+.*crunch*.local.xml
+
+# DocFX
+_site/
+docfx.log
+
+# Application Insights
+*.ai.xml
+*.aitemp
+
+# Local History for Visual Studio
+.localhistory/
+
+# Mono auto-generated files
+mono_crash.*
+
+# Backup files
+*.bak
+
+# Build results
+[Dd]ebug/
+[Rr]elease/
+x64/
+x86/
+build/
+[Bb]in/
+[Oo]bj/

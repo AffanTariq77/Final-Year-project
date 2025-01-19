@@ -1,8 +1,8 @@
 {
   "Version": 1,
-  "Hash": "7/yvsnDRTixX0vVer35KSjS1HzfM4rGxA/gc1emwSdw=",
-  "Source": "backend",
-  "BasePath": "_content/backend",
+  "Hash": "LF7YrOD4SLCYUsC8BxA57R3cqpTLuyZjeYwpE3IvXEw=",
+  "Source": "AdventureAdorn.API",
+  "BasePath": "_content/AdventureAdorn.API",
   "Mode": "Default",
   "ManifestType": "Build",
   "ReferencedProjectsConfiguration": [],

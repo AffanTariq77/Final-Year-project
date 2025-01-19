@@ -13,6 +13,7 @@ import { ComponentsModule } from "./components/components.module";
 import { ExamplesModule } from "./examples/examples.module";
 import { ReactiveFormsModule } from "@angular/forms";
 import { LoginComponent } from "./Pages/login/login.component";
+import { ProfdetailsComponent } from "./Pages/profdetails/profdetails.component";
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import { LoginComponent } from "./Pages/login/login.component";
     NavbarComponent,
     FooterComponent,
     LoginComponent,
+    ProfdetailsComponent,
   ],
   imports: [
     BrowserModule,

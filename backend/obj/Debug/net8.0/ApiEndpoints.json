@@ -1,1 +1,18 @@
-[]
+[
+  {
+    "ContainingType": "AdventureAdorn.API.Controllers.UserController",
+    "Method": "login",
+    "RelativePath": "api/user",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "clientId",
+        "Type": "System.Guid",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  }
+]

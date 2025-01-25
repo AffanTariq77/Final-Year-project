@@ -14,13 +14,16 @@ import { ExamplesModule } from "./examples/examples.module";
 import { ReactiveFormsModule } from "@angular/forms";
 import { LoginComponent } from "./Pages/login/login.component";
 import { ProfdetailsComponent } from "./Pages/profdetails/profdetails.component";
-
+import { TripSearchComponent } from "./Trip/trip-search/trip-search.component";
+import { UserService } from "./services/User.service";
+import { HttpClientModule } from "@angular/common/http";
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
     FooterComponent,
     LoginComponent,
+    TripSearchComponent,
     ProfdetailsComponent,
   ],
   imports: [
@@ -32,8 +35,10 @@ import { ProfdetailsComponent } from "./Pages/profdetails/profdetails.component"
     ExamplesModule,
     AppRoutingModule,
     ReactiveFormsModule,
+    HttpClientModule,
+    RouterModule.forRoot([]),
   ],
-  providers: [],
+  providers: [UserService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

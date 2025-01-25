@@ -14,6 +14,7 @@ import { ExamplesModule } from "./examples/examples.module";
 import { ReactiveFormsModule } from "@angular/forms";
 import { LoginComponent } from "./Pages/login/login.component";
 import { ProfdetailsComponent } from "./Pages/profdetails/profdetails.component";
+import { TripSearchComponent } from "./Trip/trip-search/trip-search.component";
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import { ProfdetailsComponent } from "./Pages/profdetails/profdetails.component"
     FooterComponent,
     LoginComponent,
     ProfdetailsComponent,
+    TripSearchComponent
   ],
   imports: [
     BrowserModule,

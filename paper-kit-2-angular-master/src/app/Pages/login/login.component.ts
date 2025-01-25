@@ -1,6 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { Router } from "@angular/router";
+import { UserService } from "app/services/User.service";
 
 @Component({
   selector: "login",
@@ -14,11 +15,16 @@ export class LoginComponent implements OnInit {
   loginForm!: FormGroup;
   signUpForm!: FormGroup;
   errorMessage: string = "";
-  isSignUp: boolean = false; // Track if user is on the sign-up form or login form
+  isSignUp: boolean = false; 
 
-  constructor(private fb: FormBuilder, private router: Router) {}
+  constructor(
+    private fb: FormBuilder,
+    private router: Router,
+    private UserService: UserService
+  ) {}
 
   ngOnInit(): void {
+    debugger
     this.loginForm = this.fb.group({
       email: ["", [Validators.required, Validators.email]],
       password: ["", [Validators.required, Validators.minLength(6)]],
@@ -31,29 +37,25 @@ export class LoginComponent implements OnInit {
     });
   }
 
-  onLoginSubmit(): void {
+  onLoginSubmit(){
+    debugger
     if (this.loginForm.valid) {
-      const { email, password } = this.loginForm.value;
-      const storedEmail = localStorage.getItem("email");
-      const storedPassword = localStorage.getItem("password");
-      // const storedname = localStorage.getItem("Name");
-      const storedfirstlogin = localStorage.getItem("user_firsttimelogin");
-
-      if (email === storedEmail && password === storedPassword) {
-        alert("Login successful!");
-
-        if (storedfirstlogin == "true") {
-          this.router.navigate(["/profdetials-component"]);
-        } else {
-          this.router.navigate(["/user-profile"]);
+      const form = this.loginForm.value;
+      this.UserService.createform(form).subscribe(
+        (data: any) => {
+          console.log("Login successful:", data);
+          // Navigate or handle success response
+        },
+        (error: any) => {
+          console.log("Login failed:", error);
+          this.errorMessage = "Login failed. Please try again.";
         }
-      } else {
-        this.errorMessage = "Invalid email or password";
-      }
+      );
     } else {
       this.errorMessage = "Please fill out the form correctly.";
     }
   }
+  
 
   onSignUpSubmit(): void {
     if (this.signUpForm.valid) {

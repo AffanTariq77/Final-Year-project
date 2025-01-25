@@ -109,8 +109,13 @@
             <form
               *ngIf="!isSignUp"
               [formGroup]="loginForm"
-              (ngSubmit)="onLoginSubmit()"
+              
             >
+            <!-- <form
+              *ngIf="!isSignUp"
+              [formGroup]="loginForm"
+              (ngSubmit)="onLoginSubmit()"
+            > -->
               <div class="form-group text-center">
                 <label for="email">Email</label>
                 <input
@@ -160,9 +165,12 @@
                 </div>
               </div>
 
-              <button type="submit" [disabled]="loginForm.invalid">
+              <button type="submit" (click)="onLoginSubmit()">
                 Login to your account
               </button>
+              <!-- <button type="submit" [disabled]="loginForm.invalid">
+                Login to your account
+              </button> -->
 
               <div *ngIf="errorMessage" class="error text-center">
                 {{ errorMessage }}

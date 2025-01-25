@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using AdventureAdorn.API.Models;
+using Microsoft.EntityFrameworkCore;
 using System.Reflection.Emit;
 
 namespace AdventureAdorn.API
@@ -16,5 +17,6 @@ namespace AdventureAdorn.API
             // Apply all IEntityTypeConfiguration mappings from the current assembly
             modelBuilder.ApplyConfigurationsFromAssembly(typeof(AdvanturAdornContext).Assembly);
         }
+        public DbSet<User> Users { get; set; }
     }
 }

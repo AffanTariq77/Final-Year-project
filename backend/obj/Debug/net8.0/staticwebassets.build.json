@@ -1,11 +1,12 @@
 {
   "Version": 1,
-  "Hash": "LF7YrOD4SLCYUsC8BxA57R3cqpTLuyZjeYwpE3IvXEw=",
+  "Hash": "/LnhaQY353YygGR9ubG8plNwj1tVF+uxbTO7yRZNLcg=",
   "Source": "AdventureAdorn.API",
   "BasePath": "_content/AdventureAdorn.API",
   "Mode": "Default",
   "ManifestType": "Build",
   "ReferencedProjectsConfiguration": [],
   "DiscoveryPatterns": [],
-  "Assets": []
+  "Assets": [],
+  "Endpoints": []
 }

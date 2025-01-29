@@ -1,42 +1,61 @@
-import { Component, OnInit } from "@angular/core";
-import { FormBuilder, FormGroup, Validators } from "@angular/forms";
-import { Router } from "@angular/router";
-import { UserService } from "../../services/User.service";
-import { HttpClient, HttpClientModule } from "@angular/common/http";
+import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { UserService } from '../../services/user.service';
+import * as _ from 'lodash';
 
 @Component({
-  selector: "signup",
-  templateUrl: "./signup.component.html",
-  styleUrls: ["./signup.component.scss"],
+  selector: 'signup',
+  templateUrl: './signup.component.html',
+  styleUrls: ['./signup.component.scss'],
 })
-export class signupcomponent implements OnInit {
+export class SignupComponent implements OnInit {
   form: FormGroup;
-  submitted:boolean;
+  submitted: boolean = false;
+  successMessage: string = '';
+  errorMessage: string = '';
+
   constructor(
     private formBuilder: FormBuilder,
     private router: Router,
-    private http: HttpClient,
-    private UserService: UserService,
-    
+    private userService: UserService
   ) {
     this.form = this.formBuilder.group({
-      FirstName: [""],
-      LastName: [""],
-      Email: ["", [Validators.email, Validators.required]],
-      Password: ["", Validators.required],
+      FirstName: ['', Validators.required],
+      LastName: ['', Validators.required],
+      Email: ['', [Validators.email, Validators.required]],
+      Password: ['', [Validators.required, Validators.minLength(6)]],
     });
   }
 
   get f() {
-		return this.form.controls;
-	}
-  ngOnInit(){
-
+    return this.form.controls;
   }
 
-  onSignUp(){
-    debugger
+  ngOnInit(): void {}
+
+  onSignUp(): void {
     this.submitted = true;
+    this.successMessage = '';
+    this.errorMessage = '';
+
+    if (this.form.invalid) {
+      return;
+    }
+
+    const user = _.clone(this.form.value);
+
+    this.userService.signUp(user).subscribe(
+      (response) => {
+        this.successMessage = 'Registration successful! Redirecting to login...';
+        setTimeout(() => {
+          this.router.navigate(['/login']);
+        }, 2000);
+      },
+      (error) => {
+        this.errorMessage = 'An error occurred during sign up. Please try again.';
+        console.error(error);
+      }
+    );
   }
-  
 }

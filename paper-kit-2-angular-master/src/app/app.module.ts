@@ -16,7 +16,8 @@ import { LoginComponent } from "./Pages/login/login.component";
 import { ProfdetailsComponent } from "./Pages/profdetails/profdetails.component";
 import { TripSearchComponent } from "./Trip/trip-search/trip-search.component";
 import { HttpClient, HttpClientModule } from "@angular/common/http";
-import { signupcomponent } from "./Pages/signup/signup.component";
+import { SignupComponent } from "./Pages/signup/signup.component";
+import { ProfilePageComponent } from './Pages/profile-page/profile-page.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { signupcomponent } from "./Pages/signup/signup.component";
     LoginComponent,
     ProfdetailsComponent,
     TripSearchComponent,
-    signupcomponent
+    SignupComponent,
+    ProfilePageComponent
   ],
   imports: [
     BrowserModule,

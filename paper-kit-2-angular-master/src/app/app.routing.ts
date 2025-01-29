@@ -13,7 +13,7 @@ import { LayoutComponent } from "./Pages/layout/layout.component";
 import { DashboardComponent } from "./Pages/dashboard/dashboard.component";
 import { AboutUsComponent } from "./Pages/about-us/about-us.component";
 import { ProfdetailsComponent } from "./Pages/profdetails/profdetails.component";
-import { signupcomponent } from "./Pages/signup/signup.component";
+import { SignupComponent } from "./Pages/signup/signup.component";
 
 const routes: Routes = [
   { path: "", redirectTo: "login", pathMatch: "full" },
@@ -29,7 +29,7 @@ const routes: Routes = [
   { path: "profdetials", component: ProfdetailsComponent },
   { path: "home", component: ComponentsComponent },
   { path: "user-profile", component: ProfileComponent },
-  { path: "signup", component: signupcomponent },
+  { path: "signup", component: SignupComponent },
   { path: "landing", component: LandingComponent },
   { path: "nucleoicons", component: NucleoiconsComponent },
 ];

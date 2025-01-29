@@ -10,7 +10,7 @@ builder.Services.AddDbContext<AdvanturAdornContext>(options =>
 
 builder.Services.AddScoped<IUnitOfWorkRepository, UnitOfWorkRepository>();
 
-builder.Services.AddScoped<IUsersServices, UsersServices>();
+builder.Services.AddScoped<IUserServices, UserServices>();
 
 builder.Services.AddControllers();
 
@@ -28,9 +28,14 @@ if (builder.Environment.IsDevelopment())
     builder.Services.AddSwaggerGen();
 }
 
+
 var app = builder.Build();
 
-
+//using (var scope = app.Services.CreateScope())
+//{
+//    var unitOfWork = scope.ServiceProvider.GetRequiredService<IUnitOfWorkRepository>();
+//    unitOfWork.Context.Database.Migrate();
+//}
 
 app.UseHttpsRedirection();
 app.UseCors("AllowSpecificOrigin");

@@ -8,31 +8,103 @@
       <div class="row">
         <div class="col-lg-4 col-sm-6 mr-auto ml-auto">
           <div class="card card-register">
-            <h3 class="title text-center">
-               Welcome to signup page
-            </h3>
-            <form novalidate [formGroup]="form" class="form-horizontal">
-                 
-              <div class="form-group" [ngClass]="{ 'has-error': !f.Email.valid && submitted }">
-                <label for="FirstName" class="input-label">FirstName <span class="required">*</span></label>
-                <input type="text" class="form-control" formControlName="FirstName" name="FirstName" placeholder="Enter First Name" />
-              </div>
-              <div class="form-group" [ngClass]="{ 'has-error': !f.Email.valid && submitted }">
-                <label for="LastName" class="input-label">LastName <span class="required">*</span></label>
-                <input type="text" class="form-control" formControlName="LastName" name="LastName" placeholder="Enter Last Name" />
-              </div>
-              <div class="form-group" [ngClass]="{ 'has-error': !f.Email.valid && submitted }">
-                <label for="Email" class="input-label">Email <span class="required">*</span></label>
-                <input type="text" class="form-control" formControlName="Email" name="Email" placeholder="Enter Email" />
-              </div>
-              <div class="form-group" [ngClass]="{ 'has-error': !f.Password.valid && submitted }">
-                <label for="Password" class="input-label">Password <span class="required">*</span></label>
-                <input type="password" class="form-control" formControlName="Password" name="Password" placeholder="Enter Password" />
-              </div>
-              
-              
+            <h3 class="title text-center">Welcome to signup page</h3>
 
-              <button type="submit" (click)="onSignUp()">
+            <!-- Show any error message here -->
+            <div *ngIf="errorMessage" class="alert alert-danger">
+              {{ errorMessage }}
+            </div>
+
+            <!-- Show any success message here -->
+            <div *ngIf="successMessage" class="alert alert-success">
+              {{ successMessage }}
+            </div>
+
+            <form novalidate [formGroup]="form" class="form-horizontal">
+              <div
+                class="form-group"
+                [ngClass]="{ 'has-error': !f.FirstName.valid && submitted }"
+              >
+                <label for="FirstName" class="input-label"
+                  >First Name <span class="required">*</span></label
+                >
+                <input
+                  type="text"
+                  class="form-control"
+                  formControlName="FirstName"
+                  name="FirstName"
+                  placeholder="Enter First Name"
+                />
+                <div
+                  *ngIf="!f.FirstName.valid && submitted"
+                  class="text-danger"
+                >
+                  First Name is required
+                </div>
+              </div>
+
+              <div
+                class="form-group"
+                [ngClass]="{ 'has-error': !f.LastName.valid && submitted }"
+              >
+                <label for="LastName" class="input-label"
+                  >Last Name <span class="required">*</span></label
+                >
+                <input
+                  type="text"
+                  class="form-control"
+                  formControlName="LastName"
+                  name="LastName"
+                  placeholder="Enter Last Name"
+                />
+                <div *ngIf="!f.LastName.valid && submitted" class="text-danger">
+                  Last Name is required
+                </div>
+              </div>
+
+              <div
+                class="form-group"
+                [ngClass]="{ 'has-error': !f.Email.valid && submitted }"
+              >
+                <label for="Email" class="input-label"
+                  >Email <span class="required">*</span></label
+                >
+                <input
+                  type="text"
+                  class="form-control"
+                  formControlName="Email"
+                  name="Email"
+                  placeholder="Enter Email"
+                />
+                <div *ngIf="!f.Email.valid && submitted" class="text-danger">
+                  Please enter a valid email address
+                </div>
+              </div>
+
+              <div
+                class="form-group"
+                [ngClass]="{ 'has-error': !f.Password.valid && submitted }"
+              >
+                <label for="Password" class="input-label"
+                  >Password <span class="required">*</span></label
+                >
+                <input
+                  type="password"
+                  class="form-control"
+                  formControlName="Password"
+                  name="Password"
+                  placeholder="Enter Password"
+                />
+                <div *ngIf="!f.Password.valid && submitted" class="text-danger">
+                  Password is required and must be at least 6 characters long
+                </div>
+              </div>
+
+              <button
+                type="submit"
+                (click)="onSignUp()"
+                class="btn btn-primary btn-block"
+              >
                 Sign up to your account
               </button>
             </form>
@@ -40,6 +112,7 @@
             <div class="forgot text-center">
               <a href="#" class="btn btn-link btn-danger">Forgot password?</a>
             </div>
+
             <div class="social-line text-center">
               <a
                 href="#pablo"
@@ -57,9 +130,11 @@
                 <i class="fa fa-twitter"></i>
               </a>
             </div>
-            <div class="text-center mt-3" >
-              <a type="btn" href="/login" style="color: #121111d0;">
-                Alrady have an account? Click here to Login.</a>
+
+            <div class="text-center mt-3">
+              <a href="/login" style="color: #121111d0"
+                >Already have an account? Click here to Login.</a
+              >
             </div>
           </div>
         </div>

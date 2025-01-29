@@ -1,5 +1,6 @@
 ﻿
 using AdventureAdorn.API.Core;
+using AdventureAdorn.API.Models;
 using Microsoft.EntityFrameworkCore;
 
 namespace AdventureAdorn.API.Repository
@@ -16,7 +17,7 @@ namespace AdventureAdorn.API.Repository
 
 
 
-        // public IRepository<InitialPurchaseRequestForm> InitialPurchaseRequestFormRepository => new GenericRepository<InitialPurchaseRequestForm>(_dbContext);
+         public IRepository<User> UserRepository => new GenericRepository<User>(_dbContext);
 
         public int Commit()
         {

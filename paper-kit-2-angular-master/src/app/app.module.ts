@@ -15,6 +15,8 @@ import { ReactiveFormsModule } from "@angular/forms";
 import { LoginComponent } from "./Pages/login/login.component";
 import { ProfdetailsComponent } from "./Pages/profdetails/profdetails.component";
 import { TripSearchComponent } from "./Trip/trip-search/trip-search.component";
+import { HttpClient, HttpClientModule } from "@angular/common/http";
+import { signupcomponent } from "./Pages/signup/signup.component";
 
 @NgModule({
   declarations: [
@@ -23,7 +25,8 @@ import { TripSearchComponent } from "./Trip/trip-search/trip-search.component";
     FooterComponent,
     LoginComponent,
     ProfdetailsComponent,
-    TripSearchComponent
+    TripSearchComponent,
+    signupcomponent
   ],
   imports: [
     BrowserModule,
@@ -34,6 +37,8 @@ import { TripSearchComponent } from "./Trip/trip-search/trip-search.component";
     ExamplesModule,
     AppRoutingModule,
     ReactiveFormsModule,
+    HttpClientModule,
+    
   ],
   providers: [],
   bootstrap: [AppComponent],

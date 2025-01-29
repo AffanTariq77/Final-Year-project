@@ -5,11 +5,11 @@ import { UserService } from "../../services/User.service";
 import { HttpClient, HttpClientModule } from "@angular/common/http";
 
 @Component({
-  selector: "login",
-  templateUrl: "./login.component.html",
-  styleUrls: ["./login.component.scss"],
+  selector: "signup",
+  templateUrl: "./signup.component.html",
+  styleUrls: ["./signup.component.scss"],
 })
-export class LoginComponent implements OnInit {
+export class signupcomponent implements OnInit {
   form: FormGroup;
   submitted:boolean;
   constructor(
@@ -20,6 +20,8 @@ export class LoginComponent implements OnInit {
     
   ) {
     this.form = this.formBuilder.group({
+      FirstName: [""],
+      LastName: [""],
       Email: ["", [Validators.email, Validators.required]],
       Password: ["", Validators.required],
     });
@@ -32,7 +34,7 @@ export class LoginComponent implements OnInit {
 
   }
 
-  onLoginSubmit(){
+  onSignUp(){
     debugger
     this.submitted = true;
   }

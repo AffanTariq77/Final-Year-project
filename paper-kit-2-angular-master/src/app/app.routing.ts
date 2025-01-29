@@ -13,22 +13,23 @@ import { LayoutComponent } from "./Pages/layout/layout.component";
 import { DashboardComponent } from "./Pages/dashboard/dashboard.component";
 import { AboutUsComponent } from "./Pages/about-us/about-us.component";
 import { ProfdetailsComponent } from "./Pages/profdetails/profdetails.component";
+import { signupcomponent } from "./Pages/signup/signup.component";
 
 const routes: Routes = [
-  { path: "", redirectTo: "login-component", pathMatch: "full" },
-  { path: "login-component", component: LoginComponent },
+  { path: "", redirectTo: "login", pathMatch: "full" },
+  { path: "login", component: LoginComponent },
   {
     path: "",
     component: LayoutComponent,
     children: [
-      { path: "dashboard-component", component: DashboardComponent },
-      { path: "about-us-component", component: AboutUsComponent },
+      { path: "dashboard", component: DashboardComponent },
+      { path: "about-us", component: AboutUsComponent },
     ],
   },
-  { path: "profdetials-component", component: ProfdetailsComponent },
+  { path: "profdetials", component: ProfdetailsComponent },
   { path: "home", component: ComponentsComponent },
   { path: "user-profile", component: ProfileComponent },
-  // { path: "signup", component: SignupComponent },
+  { path: "signup", component: signupcomponent },
   { path: "landing", component: LandingComponent },
   { path: "nucleoicons", component: NucleoiconsComponent },
 ];

@@ -16,6 +16,7 @@
             "main": "src/main.ts",
             "tsConfig": "src/tsconfig.app.json",
             "polyfills": "src/polyfills.ts",
+            "sourceMap": true,
             "assets": [
               "src/assets",
               "src/favicon.ico"
@@ -30,13 +31,13 @@
           },
           "configurations": {
             "production": {
-              "optimization": false,
+              "optimization": true,
               "outputHashing": "all",
               "sourceMap": true,
               "namedChunks": false,
               "aot": true,
               "extractLicenses": true,
-              "vendorChunk": true,
+              "vendorChunk": false,
               "buildOptimizer": true,
               "fileReplacements": [
                 {
@@ -124,13 +125,6 @@
   "schematics": {
     "@schematics/angular:component": {
       "style": "scss"
-    }
-    },
-    "@schematics/angular:directive": {
-      "prefix": "app"
-    },
-    "cli": {
-      "analytics": false
     }
   },
   "cli": {

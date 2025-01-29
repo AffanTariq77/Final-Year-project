@@ -17,7 +17,6 @@ import { ProfdetailsComponent } from "./Pages/profdetails/profdetails.component"
 import { TripSearchComponent } from "./Trip/trip-search/trip-search.component";
 import { HttpClient, HttpClientModule } from "@angular/common/http";
 import { SignupComponent } from "./Pages/signup/signup.component";
-import { ProfilePageComponent } from './Pages/profile-page/profile-page.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +27,6 @@ import { ProfilePageComponent } from './Pages/profile-page/profile-page.componen
     ProfdetailsComponent,
     TripSearchComponent,
     SignupComponent,
-    ProfilePageComponent
   ],
   imports: [
     BrowserModule,
@@ -39,8 +37,7 @@ import { ProfilePageComponent } from './Pages/profile-page/profile-page.componen
     ExamplesModule,
     AppRoutingModule,
     ReactiveFormsModule,
-    HttpClientModule,
-    
+    HttpClientModule,    
   ],
   providers: [],
   bootstrap: [AppComponent],
